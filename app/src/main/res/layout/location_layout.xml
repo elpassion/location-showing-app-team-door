@@ -9,8 +9,9 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:visibility="gone"/>
+        android:background="#ccc"/>
     <ImageView
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.jasiekpor.mapapp
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val intent = Intent(this, LocationActivity::class.java)
+        startActivity(intent)
         button.setOnClickListener() {
             if (isPermissionGranted()) {
                 showCoordinates()
@@ -77,6 +80,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showMapPreview() {
+
+    }
+    fun showMap(){
 
     }
 
