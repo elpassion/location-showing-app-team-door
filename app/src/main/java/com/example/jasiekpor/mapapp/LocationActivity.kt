@@ -18,7 +18,9 @@ class LocationActivity : Activity(){
         setContentView(R.layout.location_layout)
 
         val locationListener = object:LocationListener {
-            override fun onLocationChanged(location: Location?) {
+            override fun onLocationChanged(location: Location) {
+                val longitude = location.longitude
+                val latitude = location.latitude
             }
 
             override fun onProviderDisabled(provider: String?) {
@@ -31,6 +33,8 @@ class LocationActivity : Activity(){
             }
 
         }
+
+        locationManager.requestLocationUpdates(locationProvider, 0, 0f, locationListener)
 
     }
 }
