@@ -2,6 +2,7 @@ package com.example.jasiekpor.mapapp
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.location.Criteria
 import android.location.Location
 import android.location.LocationListener
@@ -15,10 +16,14 @@ import com.bumptech.glide.Glide
 
 
 class LocationActivity : Activity() {
-
+companion object{
+    fun start(activity:Activity){
+        val intent = Intent(activity,LocationActivity::class.java)
+        activity.startActivity(intent)
+    }
+}
     val locationManager by lazy { this.getSystemService(Context.LOCATION_SERVICE) as LocationManager }
     val locationProvider by lazy { LocationManager.GPS_PROVIDER }
-    val noPermissionMessage by lazy { findViewById(R.id.no_permission_message) as TextView }
     val mapView by lazy { findViewById(R.id.map_view) as ImageView }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +54,6 @@ class LocationActivity : Activity() {
     }
 
     fun setMapView(longitude: Double, latitude: Double) {
-        Glide.with(this).load("https://maps.googleapis.com/maps/api/staticmap?center=$longitude,$latitude&zoom=10&size=600x300&key=AIzaSyC8Cl3TYbzkZ6bb8_fwKeMhFvx_Be6B0CY").into(mapView)
+        Glide.with(this).load("https://maps.googleapis.com/maps/api/staticmap?center=$latitude,$longitude&zoom=10&size=300x600&key=AIzaSyC8Cl3TYbzkZ6bb8_fwKeMhFvx_Be6B0CY").into(mapView)
     }
 }
