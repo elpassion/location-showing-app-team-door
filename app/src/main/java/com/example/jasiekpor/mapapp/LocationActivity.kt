@@ -15,7 +15,7 @@ class LocationActivity : Activity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.location_layout)
 
         val locationListener = object:LocationListener {
             override fun onLocationChanged(location: Location?) {
